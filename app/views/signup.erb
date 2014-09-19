@@ -1,0 +1,11 @@
+<h1>The Social Bite</h1>
+<form action="/signup" method="post">
+  <h2>Signup</h2>
+  <label>Username: </label><input name="user[name]" type="text"><br>
+  <label>Password: </label><input name="user[password]" type="password"><br>
+  <% if @error %>
+  <%= @error %>
+  <% end %>
+
+  <button type="submit">Sign up</button>
+</form>
