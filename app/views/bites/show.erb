@@ -1,0 +1,6 @@
+<form action="/bite/<%=@bite.id%>" method="get">
+  <h2><%= Bite.find(@bite.id).user.name %>'s Food for Thought:</h2>
+  <p><%=@bite.content%></p>
+
+  <a href="/user/<%=session[:user_id]%>/newsfeed"><button type="submit">Newsfeed</button>
+</form>
