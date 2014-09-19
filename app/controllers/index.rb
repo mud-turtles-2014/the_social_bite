@@ -15,5 +15,15 @@ post '/' do
     session[:login_error] = "Invalid ID or password."
     redirect to('/')
   end
+end
 
+get '/signup' do
+
+  erb :'signup'
+end
+
+post '/signup' do
+ @user = User.create(params[:user])
+
+ redirect to("/user/#{@user.id}/newsfeed")
 end
