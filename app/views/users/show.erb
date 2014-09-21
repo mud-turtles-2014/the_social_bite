@@ -1,1 +1,24 @@
-<h2>Public Profile for <%= @user.name %></h2>
+<h2><%= @user.name.capitalize %>'s Biter Profile:</h2>
+
+<% if @user == User.find(session[:user_id]) %>
+  <form action="/user/<%=@user.id%>" method="post">
+  <a href="/user/<%=@user.id%>/bitefeed"><button type="button">Go to Bitefeed</button></a>
+  </form>
+<%elsif following?(@user)%>
+  <form action="/user/<%=@user.id%>" method="post">
+  <button type="submit">UNBite Me</button>
+  </form>
+<%else%>
+  <form action="/user/<%=@user.id%>" method="post">
+  <button type="submit">Bite Me</button>
+  </form>
+<%end%>
+
+<p>Followers: <%=@followers.count%>     |     Following: <%=@followed_users.count%></p>
+
+<%@bites.each do |loop_bite|%>
+<%= erb :'_bite_display', locals:{bite: loop_bite}%>
+<%end%>
+
+
+

@@ -1,0 +1,9 @@
+<div class="header">
+  <% if logged_in? %>
+    <a href="/user/<%=session[:user_id]%>/bitefeed">My Bitefeed</a>
+    <a href="/logout" >Logout</a>
+  <% else %>
+    <a href="/login">Login</a>
+    <a href="/signup">Signup</a>
+  <% end %>
+</div>

@@ -11,4 +11,18 @@ helpers do
   def logged_in?
     !current_user.nil?
   end
+
+  def following?(bite_user)
+    user = User.find(session[:user_id])
+    following = user.followed_users.select {|followed_user| followed_user == bite_user}
+    following.length == 0 ? false : true
+  end
+
+  def followers_bites
+    bite_feed = []
+    user = User.find(session[:user_id])
+    bite_feed << user.bites.order("created_at DESC")
+    user.followed_users.each {|user| bite_feed << user.bites.order("created_at DESC")}
+    bite_feed.flatten
+  end
 end

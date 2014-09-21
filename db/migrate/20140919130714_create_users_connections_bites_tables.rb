@@ -8,15 +8,15 @@ class CreateUsersConnectionsBitesTables < ActiveRecord::Migration
     end
 
     create_table :relationships do |t|
-      t.integer :follower_id
-      t.integer :followed_user_id
+      t.references :follower
+      t.references :followed_user
 
       t.timestamps
     end
 
     create_table :bites do |t|
       t.string :content
-      t.integer :user_id
+      t.references :user
 
       t.timestamps
     end
