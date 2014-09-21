@@ -17,3 +17,8 @@ h1{
 textarea{
   width: 50%;
 }
+
+.hashtag {
+    color: red;
+    padding: 0px 2px;
+}

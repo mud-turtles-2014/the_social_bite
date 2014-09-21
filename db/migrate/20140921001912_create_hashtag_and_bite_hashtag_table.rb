@@ -6,10 +6,11 @@ class CreateHashtagAndBiteHashtagTable < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_tabe :bite_hashtags do |t|
+    create_table :bite_hashtags do |t|
       t.references :bite
       t.references :hashtag
 
       t.timestamps
+    end
   end
 end

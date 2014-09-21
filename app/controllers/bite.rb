@@ -12,6 +12,14 @@ end
 
 put "/bite/:id/edit" do
   @bite.update(content: params[:bite_content])
+  #CHECK FOR NEW HASHTAGS AND DESTROY FROM OLD
+  #check_for_hashtags(@bite)
+
+  redirect to "user/#{session[:user_id]}/bitefeed"
+end
+
+delete "/bite/:id/edit" do
+  @bite.destroy
 
   redirect to "user/#{session[:user_id]}/bitefeed"
 end

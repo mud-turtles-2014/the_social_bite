@@ -1,8 +1,15 @@
 <h2>My Bitefeed</h2>
 
+<br>
+<h4>Trending Hashtags:</h4>
+<%@trending_hashtags.each do |tag|%>
+  <a href="/hashtag/<%=tag.id%>">#<%=tag.hashtag%></a>
+<%end%>
+<p>
+
 <form action='/user/<%=@user.id%>/bitefeed' method="post">
 <textarea name="bite_content" placeholder="<%=$placeholder_sayings.sample%>"></textarea>
-<br><br>i
+<br><br>
 <button type="submit">Create New Bite</button></a>
 </form>
 <br>

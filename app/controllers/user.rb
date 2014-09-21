@@ -30,6 +30,7 @@ get "/user/:id/bitefeed" do
 
   @user = User.find(session[:user_id])
   @bite_feed = followers_bites
+  @trending_hashtags = trending_hashtags
 
   erb :'users/bitefeed'
 end
@@ -38,7 +39,8 @@ $placeholder_sayings = ["Everyone is so interested in what you're eating...", "W
 
 post "/user/:id/bitefeed" do
   @user = User.find(session[:user_id])
-  @user.bites.create(content: params[:bite_content])
+  @bite = @user.bites.create(content: params[:bite_content])
+  check_for_hashtags(@bite)
 
   redirect to ("/user/#{params[:id]}/bitefeed")
 end

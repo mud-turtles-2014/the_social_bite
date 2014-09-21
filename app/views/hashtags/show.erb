@@ -1,0 +1,6 @@
+<h2>All bites for '<%=@tag.hashtag%>'</h2>
+
+<%@bites_for_tag.each do |loop_bite|%>
+  <%= erb :'_bite_display', locals:{bite: loop_bite}%>
+<%end%>
+

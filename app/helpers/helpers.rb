@@ -25,8 +25,15 @@ helpers do
     bite_feed.flatten
   end
 
-  def check_for_hashtags(bite_content)
-    bite_content
+  def check_for_hashtags(bite_object)
+    bite_object.content.split(" ").each do |word|
+      bite_object.hashtags << Hashtag.find_or_create_by(hashtag: word[1..-1]) if word[0] == "#"
+    end
+  end
 
+  def trending_hashtags
+    Hashtag.all.order("bites_count DESC").limit(5)
   end
 end
+
+# User.order("users.solutions_count DESC").limit(10)
