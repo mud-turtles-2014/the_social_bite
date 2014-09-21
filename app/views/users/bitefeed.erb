@@ -3,7 +3,7 @@
 <form action='/user/<%=@user.id%>/bitefeed' method="post">
 <textarea name="bite_content" placeholder="<%=$placeholder_sayings.sample%>"></textarea>
 <br>
-<a href="/bite/new"><button type="submit">Create New Bite</button></a>
+<button type="submit">Create New Bite</button></a>
 </form>
 <br>
 <%@bite_feed.each do |loop_bite|%>

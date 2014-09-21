@@ -1,0 +1,8 @@
+<h2>Edit Bite</h2>
+
+<form action="/bite/<%=@bite.id%>/edit" method="post">
+  <input type="hidden" name="_method" value="put">
+  <textarea name="bite_content"><%=@bite.content%></textarea>
+  <br><br>
+  <button type="submit">Update Bite</button>
+</form>

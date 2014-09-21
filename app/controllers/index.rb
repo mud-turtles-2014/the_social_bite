@@ -18,14 +18,22 @@ post '/' do
 end
 
 get '/signup' do
+  if session[:password_signup]
+    @error = session[:password_signup]
+    session[:password_signup] = nil
+  end
 
   erb :'signup'
 end
 
 post '/signup' do
- @user = User.create(params[:user])
-
- redirect to("/user/#{@user.id}/bitefeed")
+  if params[:user][:password] != params[:user][:confirm_password]
+    session[:password_signup] = "Password did not match. Please try again."
+    redirect to ('/signup')
+  else
+    @user = User.create(params[:user])
+  redirect to("/user/#{@user.id}/bitefeed")
+  end
 end
 
 get '/logout' do
