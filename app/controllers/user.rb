@@ -1,3 +1,7 @@
+before '/user/:id/bitefeed' do
+  @authorized = true if current_user == User.find(params[:id])
+end
+
 get "/user/:id" do
   @user = User.find(params[:id])
   @bites = @user.bites.order("created_at DESC")
@@ -20,6 +24,10 @@ end
 
 
 get "/user/:id/bitefeed" do
+  if @authorized == false
+    redirect to ("/user/#{session[:user_id]}/bitefeed")
+  end
+
   @user = User.find(session[:user_id])
   @bite_feed = followers_bites
 

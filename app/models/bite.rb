@@ -1,5 +1,5 @@
 class Bite < ActiveRecord::Base
   belongs_to :author, class_name: "User", foreign_key: :user_id
-
-  # Remember to create a migration!
+  has_many :bite_hashtags
+  has_many :hashtags, through: :bite_hashtags
 end

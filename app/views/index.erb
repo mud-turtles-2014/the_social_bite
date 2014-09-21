@@ -4,7 +4,10 @@
   <label>Username: </label><input name="user[name]" type="text"><br><br>
   <label>Password: &nbsp;</label><input name="user[password]" type="password"><br>
 
-  <%= @error if @error %><br>
-
+  <br>
+  <%if @error %>
+    <%=@error%><br>
+  <%end%>
+  <br>
   <button type="submit">Login</button>
 </form>

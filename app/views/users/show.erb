@@ -14,7 +14,9 @@
   </form>
 <%end%>
 
-<p>Followers: <%=@followers.count%>     |     Following: <%=@followed_users.count%></p>
+<!-- Minus one to account for user following themselves -->
+
+<p>Followers: <%=@followers.count-1%>     |     Following: <%=@followed_users.count-1%></p>
 
 <%@bites.each do |loop_bite|%>
 <%= erb :'_bite_display', locals:{bite: loop_bite}%>

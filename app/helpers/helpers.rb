@@ -21,8 +21,12 @@ helpers do
   def followers_bites
     bite_feed = []
     user = User.find(session[:user_id])
-    bite_feed << user.bites.order("created_at DESC")
     user.followed_users.each {|user| bite_feed << user.bites.order("created_at DESC")}
     bite_feed.flatten
+  end
+
+  def check_for_hashtags(bite_content)
+    bite_content
+
   end
 end
