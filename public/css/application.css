@@ -2,6 +2,20 @@ body {
   background: #E0E4CC;
 }
 
+.container {
+  height: 100%;
+  width: 100%;
+  background: #E0E4CC;
+}
+
+#edit_bite {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: left;
+  padding-left: 150px;
+  height: 50%;
+  width: 70%;
+}
 .bite_display {
   font-weight: bold;
   color: #F38630;
@@ -20,7 +34,7 @@ label {
 }
 
 .profile_info {
-  padding-left: 20px;
+  /*padding-left: 20px;*/
   padding-top: 20px;
 }
 
@@ -29,19 +43,9 @@ label {
 }
 
 #public_profile_top .profile_pic{
-  text-align: center;
-  padding-left: 450px;
+  float: center;
 }
 
-
-.container {
-  height: 100%;
-/*  margin: 20px auto;*/
-  width: 100%;
-  /*padding: 0px 20px 20px 20px;*/
-  /*border: 3px solid black;*/
-  background: #E0E4CC;
-}
 
 .login{
   text-align: center;
@@ -61,8 +65,8 @@ h1{
   color: #E0E4CC;
 }
 
-h4{
-  color: #F38630;
+h2{
+  color: #69D2E7;
 }
 
 h3{
@@ -71,6 +75,11 @@ h3{
   text-shadow: #69D2E7;
   color: #69D2E7;
 }
+
+h4{
+  color: #F38630;
+}
+
 
 #top {
   /*border: solid orange;*/
@@ -86,7 +95,7 @@ h3{
 }
 
 #profile {
-  padding-left: 20px;
+  /*padding-left: 20px;*/
   /*border: solid red;*/
   /*height: 40%;*/
   height: 200px;
@@ -104,6 +113,7 @@ h3{
   height: 50%;
   width: 100%;
 }
+
 
 #profile .bite_form {
   /*border: solid purple;*/
@@ -127,6 +137,7 @@ h3{
   width: 15%;
   float: left;
   padding-bottom: 15px;
+  padding-left: 15px;
 }
 /*#profile .profile_pic {
   height: 25%;
@@ -158,5 +169,5 @@ h3{
 }
 
 textarea{
-  width: 100%;
+  width: 80%;
 }

@@ -1,6 +1,6 @@
 <div id="public_profile_top"><h3><%= @user.name.capitalize %>'s Biter Profile:</h3>
   <div id="profile">
-     <img class="profile_pic" src="<%=current_user.photo_url%>" alt="Profile Picture">
+     <img class="profile_pic" src="<%=@user.photo_url%>" alt="Profile Picture">
   </div>
 <div class="profile_info">
   <% if @user == User.find(session[:user_id]) %>
