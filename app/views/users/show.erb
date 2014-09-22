@@ -5,15 +5,15 @@
 <div class="profile_info">
   <% if @user == User.find(session[:user_id]) %>
     <form action="/user/<%=@user.id%>" method="post">
-    <a href="/user/<%=@user.id%>/bitefeed"><button type="button">Go to Bitefeed</button></a>
+    <a href="/user/<%=@user.id%>/bitefeed"><button class="btn" type="button">Go to Bitefeed</button></a>
     </form>
   <%elsif following?(@user)%>
     <form action="/user/<%=@user.id%>" method="post">
-    <button type="submit">UNBite Me</button>
+    <button class="btn" type="submit">UNBite Me</button>
     </form>
   <%else%>
     <form action="/user/<%=@user.id%>" method="post">
-    <button type="submit">Bite Me</button>
+    <button class="btn" type="submit">Bite Me</button>
     </form>
   <%end%>
   <h4>Followers: <%=@followers.count-1%>     |     Following: <%=@followed_users.count-1%></h4>
