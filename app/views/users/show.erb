@@ -1,26 +1,33 @@
-<h2><%= @user.name.capitalize %>'s Biter Profile:</h2>
+<div id="public_profile_top"><h3><%= @user.name.capitalize %>'s Biter Profile:</h3>
+  <div id="profile">
+     <img class="profile_pic" src="<%=current_user.photo_url%>" alt="Profile Picture">
+  </div>
+<div class="profile_info">
+  <% if @user == User.find(session[:user_id]) %>
+    <form action="/user/<%=@user.id%>" method="post">
+    <a href="/user/<%=@user.id%>/bitefeed"><button type="button">Go to Bitefeed</button></a>
+    </form>
+  <%elsif following?(@user)%>
+    <form action="/user/<%=@user.id%>" method="post">
+    <button type="submit">UNBite Me</button>
+    </form>
+  <%else%>
+    <form action="/user/<%=@user.id%>" method="post">
+    <button type="submit">Bite Me</button>
+    </form>
+  <%end%>
+  <h4>Followers: <%=@followers.count-1%>     |     Following: <%=@followed_users.count-1%></h4>
+</div>
+</div>
+  <!-- <img src="<%=current_user.photo_url%>" alt="Profile Picture"> -->
 
-<% if @user == User.find(session[:user_id]) %>
-  <form action="/user/<%=@user.id%>" method="post">
-  <a href="/user/<%=@user.id%>/bitefeed"><button type="button">Go to Bitefeed</button></a>
-  </form>
-<%elsif following?(@user)%>
-  <form action="/user/<%=@user.id%>" method="post">
-  <button type="submit">UNBite Me</button>
-  </form>
-<%else%>
-  <form action="/user/<%=@user.id%>" method="post">
-  <button type="submit">Bite Me</button>
-  </form>
-<%end%>
 
+<div id="bites">
+
+
+  <%@bites.each do |loop_bite|%>
+  <%= erb :'_bite_display', locals:{bite: loop_bite}%>
+  <%end%>
+
+</div>
 <!-- Minus one to account for user following themselves -->
-
-<p>Followers: <%=@followers.count-1%>     |     Following: <%=@followed_users.count-1%></p>
-
-<%@bites.each do |loop_bite|%>
-<%= erb :'_bite_display', locals:{bite: loop_bite}%>
-<%end%>
-
-
-

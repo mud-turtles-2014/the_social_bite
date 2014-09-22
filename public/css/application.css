@@ -1,24 +1,162 @@
-.container {
-  margin: 20px auto;
-  width: 800px;
-  padding: 0px 20px 20px 20px;
-  border: 3px solid black;
+body {
+  background: #E0E4CC;
 }
 
-h1{
+.bite_display {
+  font-weight: bold;
+  color: #F38630;
+}
+
+.bite_display a{
+  font-weight: normal;
+  color: gray;
+  text-shadow: 2px 2px #69D2E7;
+}
+
+
+label {
+ font-weight: bold;
+ color: #F38630;
+}
+
+.profile_info {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+#public_profile_top{
   text-align: center;
 }
 
+#public_profile_top .profile_pic{
+  text-align: center;
+  padding-left: 450px;
+}
+
+
+.container {
+  height: 100%;
+/*  margin: 20px auto;*/
+  width: 100%;
+  /*padding: 0px 20px 20px 20px;*/
+  /*border: 3px solid black;*/
+  background: #E0E4CC;
+}
+
+.login{
+  text-align: center;
+}
+
+h5{
+  text-align: center;
+  font-size: 15px;
+  color: #E0E4CC;
+}
+
+
+h1{
+  text-align: center;
+  font-size: 60px;
+  text-shadow: 3px 3px #69D2E7;
+  color: #E0E4CC;
+}
+
+h4{
+  color: #F38630;
+}
+
+h3{
+  text-align: center;
+  font-size: 40px;
+  text-shadow: #69D2E7;
+  color: #69D2E7;
+}
+
+#top {
+  /*border: solid orange;*/
+  float: top;
+  height: 5%;
+}
+
+#top h3{
+ font-size: 30px;
+ padding-left: 20px;
+ color: #F38630;
+ text-align: left;
+}
+
+#profile {
+  padding-left: 20px;
+  /*border: solid red;*/
+  /*height: 40%;*/
+  height: 200px;
+  width: 100%;
+
+}
+
+#bites {
+  text-align: center;
+  padding-left: 10px;
+  padding-top: 50px;
+  padding-bottom: 80px;
+  /*border: solid blue;*/
+  float: bottom;
+  height: 50%;
+  width: 100%;
+}
+
+#profile .bite_form {
+  /*border: solid purple;*/
+  padding-top: 19px;
+  padding-right: 85px;
+  height: 20%;
+  width: 74%;
+  float: right;
+}
+
+.bite_form a{
+  /*border: solid purple;*/
+  font-weight: normal;
+  color: gray;
+  text-shadow: 1px 1px #69D2E7;
+}
+
+.profile_pic {
+  /*border: solid green;*/
+  height: 100%;
+  width: 15%;
+  float: left;
+  padding-bottom: 15px;
+}
+/*#profile .profile_pic {
+  height: 25%;
+  width: 17%;
+  float: left;
+  padding-bottom: 15px;
+}*/
+
+.header #header_link {
+  color: #E0E4CC;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
 .header{
+  background-color: #F38630;
+  height: 250px;
+
   padding-top: 10px;
   padding-left: 10px;
 }
 
-textarea{
-  width: 50%;
+.line {
+  height: 10px;
+  float: bottom;
+  background: #69D2E7;
 }
 
-.hashtag {
-    color: red;
-    padding: 0px 2px;
+textarea{
+  width: 100%;
 }

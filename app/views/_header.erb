@@ -1,10 +1,12 @@
 <div class="header">
   <% if logged_in? %>
-    <a href="/user/<%=session[:user_id]%>/bitefeed">My Bitefeed</a>
-    <a href="/user/<%=session[:user_id]%>">My Profile</a>
-    <a href="/logout" >Logout</a>
+    <a id="header_link" href="/user/<%=session[:user_id]%>/bitefeed">My Bitefeed</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a id="header_link" href="/user/<%=session[:user_id]%>">My Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a id="header_link" href="/logout" >Logout</a>
   <% else %>
-    <a href="/">Login</a>
-    <a href="/signup">Signup</a>
+    <a id="header_link" href="/">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a id="header_link" href="/signup">Signup</a>
   <% end %>
+  <h1>The Social Bite</h1>
+   <h5><i>"The Food Twitter You Always Craved..."</i></h5>
 </div>

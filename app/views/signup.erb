@@ -1,12 +1,13 @@
-<h1>The Social Bite</h1>
+<div class="login">
 <form action="/signup" method="post">
-  <h2>Signup</h2>
-    <label>Username: <br></label><input name="user[name]" type="text"><br><br>
-    <label>Password: <br></label><input name="user[password]" type="password"><br><br>
-    <label>Confirm Password: <br></label><input name="user[confirm_password]" type="password"><br><br>
+  <h3>Signup</h3>
+    <label>Username :</label>&nbsp;&nbsp;&nbsp;<input name="user[name]" type="text"><br><br>
+    <label>Password :</label>&nbsp;&nbsp;&nbsp;<input name="user[password]" type="password"><br><br>
+    <label>Confirm Password :</label>&nbsp;&nbsp;&nbsp;<input name="user[confirm_password]" type="password"><br><br>
     <% if @error %>
     <%= @error %>
     <% end %>
     <br><br>
   <button type="submit">Sign up</button>
 </form>
+</div>

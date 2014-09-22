@@ -35,7 +35,7 @@ get "/user/:id/bitefeed" do
   erb :'users/bitefeed'
 end
 
-$placeholder_sayings = ["Everyone is so interested in what you're eating...", "Whatcha biting on?", "Yum that looks good, you should tell everyone!", "Nom Nom Nom", "Don't forget to #foodporn", "Everyone's going to be so jealous when they see this."]
+$placeholder_sayings = ["Everyone is so interested in what you're eating...", "Whatcha biting on?", "Yum that looks good, you should tell everyone!", "Nom Nom Nom", "Don't forget to #foodporn", "Everyone's going to be so jealous when they see this.", "Oh, I'm so interested, please tell me more."]
 
 post "/user/:id/bitefeed" do
   @user = User.find(session[:user_id])

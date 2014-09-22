@@ -27,7 +27,9 @@ helpers do
 
   def check_for_hashtags(bite_object)
     bite_object.content.split(" ").each do |word|
-      bite_object.hashtags << Hashtag.find_or_create_by(hashtag: word[1..-1]) if word[0] == "#"
+      if Hashtag.exists?(current_user.bites.find(bite_object.id).hashtags.find_by(hashtag: word.match(/#\w{0,}/).to_s)) == false
+          bite_object.hashtags << Hashtag.find_or_create_by(hashtag: word.match(/#\w{0,}/).to_s) if word[0] == "#"
+      end
     end
   end
 
