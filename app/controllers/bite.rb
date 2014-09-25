@@ -18,8 +18,8 @@ put "/bite/:id/edit" do
   redirect to "user/#{session[:user_id]}/bitefeed"
 end
 
-delete "/bite/:id/edit" do
-  @bite.destroy
+delete "/bite/:id" do
+  Bite.find(params[:id]).destroy
 
   redirect to "user/#{session[:user_id]}/bitefeed"
 end

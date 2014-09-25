@@ -5,15 +5,15 @@
 <div class="profile_info">
   <% if @user == User.find(session[:user_id]) %>
     <form action="/user/<%=@user.id%>" method="post">
-    <a href="/user/<%=@user.id%>/bitefeed"><button class="btn" type="button">Go to Bitefeed</button></a>
+    <a href="/user/<%=@user.id%>/bitefeed"><input class="btn" value="Go to Bitefeed" type="submit"></a>
     </form>
   <%elsif following?(@user)%>
     <form action="/user/<%=@user.id%>" method="post">
-    <button class="btn" type="submit">UNBite Me</button>
+    <input class="btn" id ="unbite_me" type="submit" value="UNBite Me">
     </form>
   <%else%>
     <form action="/user/<%=@user.id%>" method="post">
-    <button class="btn" type="submit">Bite Me</button>
+    <input class="btn" id="bite_me" type="submit" value="Bite Me">
     </form>
   <%end%>
   <h4>Followers: <%=@followers.count-1%>     |     Following: <%=@followed_users.count-1%></h4>
@@ -23,11 +23,8 @@
 
 
 <div id="bites">
-
-
   <%@bites.each do |loop_bite|%>
-  <%= erb :'_bite_display', locals:{bite: loop_bite}%>
+    <%= erb :'_bite_display', locals:{bite: loop_bite}%>
   <%end%>
-
 </div>
 <!-- Minus one to account for user following themselves -->

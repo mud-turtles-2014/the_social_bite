@@ -8,12 +8,12 @@
         <a href="/hashtag/<%=tag.id%>"><%=tag.hashtag%></a>
       <%end%>
       <p>
-     <form action='/user/<%=@user.id%>/bitefeed' method="post">
-      <textarea name="bite_content" placeholder="<%=$placeholder_sayings.sample%>"></textarea>
-      <br><br>
-      <button class="btn" type="submit">Create New Bite</button></a>
-      </form>
-      <br>
+     <form id="create_bite" action='/user/<%=@user.id%>/new' method="post">
+        <textarea name="bite_content" placeholder="<%=$placeholder_sayings.sample%>"></textarea>
+        <br><br>
+        <input type="submit" value="Create Bite">
+    </form>
+    <br>
      </div>
   </div>
 
