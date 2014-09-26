@@ -1,23 +1,17 @@
 <div id="public_profile_top"><h3><%= @user.name.capitalize %>'s Biter Profile:</h3>
-  <div id="profile">
-     <img class="profile_pic" src="<%=@user.photo_url%>" alt="Profile Picture">
+    <div id="profile">
+       <img class="profile_pic" src="<%=@user.photo_url%>" alt="Profile Picture">
+    </div>
+  <div class="profile_info">
+    <% if @user == User.find(session[:user_id]) %>
+      <form action="/user/<%=@user.id%>" method="post">
+        <a href="/user/<%=@user.id%>/bitefeed"><input class="btn" value="Go to Bitefeed" type="submit"></a>
+        <h4>Followers: <%=@user.followers.count-1%>     |     Following: <%=@user.followed_users.count-1%></h4>
+      </form>
+    <%else%>
+        <%= erb :'_follow_info', layout: false %>
+    <%end%>
   </div>
-<div class="profile_info">
-  <% if @user == User.find(session[:user_id]) %>
-    <form action="/user/<%=@user.id%>" method="post">
-    <a href="/user/<%=@user.id%>/bitefeed"><input class="btn" value="Go to Bitefeed" type="submit"></a>
-    </form>
-  <%elsif following?(@user)%>
-    <form action="/user/<%=@user.id%>" method="post">
-    <input class="btn" id ="unbite_me" type="submit" value="UNBite Me">
-    </form>
-  <%else%>
-    <form action="/user/<%=@user.id%>" method="post">
-    <input class="btn" id="bite_me" type="submit" value="Bite Me">
-    </form>
-  <%end%>
-  <h4>Followers: <%=@followers.count-1%>     |     Following: <%=@followed_users.count-1%></h4>
-</div>
 </div>
   <!-- <img src="<%=current_user.photo_url%>" alt="Profile Picture"> -->
 

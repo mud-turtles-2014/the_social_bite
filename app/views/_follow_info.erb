@@ -1,0 +1,11 @@
+<form id="follow_info" action="/user/<%=params[:id]%>" method="post">
+  <% if following?(User.find(params[:id])) %>
+  <% bite_me = "UNBite Me"%>
+  <%else%>
+  <% bite_me = "Bite Me"%>
+  <%end%>
+
+  <input class="btn" type="submit" value="<%=bite_me%>">
+
+  <h4>Followers: <%=User.find(params[:id]).followers.count-1%> | Following: <%=User.find(params[:id]).followed_users.count-1%></h4>
+</form>

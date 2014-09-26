@@ -13,34 +13,15 @@ $(document).ready(function() {
       });
   });
 
-  $('#unbite_me').click(function(event) {
+  $('#follow_info').submit(function(event) {
     event.preventDefault();
+   $('#follow_info input').val('Digesting...');
     $.ajax({
       url: $('.profile_info form').attr("action"),
-      type: 'post',
-      dataType: 'json'
-    }).done(function(response){
-      // $('#unbite_me').val('Bite Me');
-      $('.profile_info h4').empty();
-      $('.profile_info').append('<h4>'+ "Followers: " +response.followers +"   |   Following: "+response.following + '</h4>');
-      // $('.profile_info input').hide()
-      // $('.profile_info input').append('input #bite_me');
-      // $('.profile_info input').show();
-      // console.log(response["followers"]);
-      // $('#profile_info').append('<h4>'+Followers: | Following:'</h4>');
-    });
-  });
-
-  $('#bite_me').click(function(event) {
-    event.preventDefault();
-    $.ajax({
-      url: $('.profile_info form').attr("action"),
-      type: 'post',
-      dataType: 'json'
-    }).done(function(response){
-      // $('#bite_me').val('UNbite Me');
-      $('.profile_info h4').empty();
-      $('.profile_info').append('<h4>'+ "Followers: " +response.followers +"   |   Following: "+response.following + '</h4>');
+      type: 'post'
+      }).done(function(response){
+        console.log(response);
+        $('.profile_info form').replaceWith(response);
     });
   });
 });
