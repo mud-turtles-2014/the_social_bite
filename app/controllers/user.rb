@@ -13,28 +13,19 @@ get "/user/:id" do
 end
 
 post "/user/:id" do
-  #SCOPE OUT FOLLOW/UNFOLLOW
   @user = User.find(session[:user_id])
-  # p @user
-  # p session[:user_id]
-  # p "*" * 50
-  # p params
-  # p "*" * 50
-  # p following?(User.find(params[:id]))
-  # p "*" * 50
-  # p User.find(params[:id])
-
-  if following?(User.find(params[:id]))
+  @user_on_page = User.find(params[:id])
+  if following?(@user_on_page)
 
    @user.followed_relationships.find_by(followed_user_id: params[:id]).destroy
-
-    erb :'_follow_info', layout: false
+    erb :'/partials/_follow_info', layout: false
   else
-    @user.followed_users << User.find(params[:id])
-
-    erb :'_follow_info', layout: false
+    @user.followed_users << @user_on_page
+    erb :'/partials/_follow_info', layout: false
   end
 end
+
+ $PLACEHOLDER_SAYINGS = ["Everyone is so interested in what you're eating...", "Whatcha biting on?", "Yum that looks good, you should tell everyone!", "Nom Nom Nom", "Don't forget to #foodporn", "Everyone's going to be so jealous when they see this.", "Oh, I'm so interested, please tell me more."]
 
 get "/user/:id/bitefeed" do
   if @authorized == false
@@ -48,11 +39,26 @@ get "/user/:id/bitefeed" do
   erb :'users/bitefeed'
 end
 
-$placeholder_sayings = ["Everyone is so interested in what you're eating...", "Whatcha biting on?", "Yum that looks good, you should tell everyone!", "Nom Nom Nom", "Don't forget to #foodporn", "Everyone's going to be so jealous when they see this.", "Oh, I'm so interested, please tell me more."]
-
 post "/user/:id/new" do
   @user = User.find(session[:user_id])
   @bite = @user.bites.create(content: params[:bite_content])
 
-  erb :'_bite_display', locals: {bite: @bite}, layout: false
+  erb :'/partials/_bite_display', locals: {bite: @bite}, layout: false
 end
+
+get "/user/:id/followers" do
+  @user = User.find(params[:id])
+  @users_followers = User.find(params[:id]).followers
+  @followers = @users_followers - [@user]
+  @users_following = User.find(params[:id]).followed_users
+  @following = @users_following - [@user]
+
+  erb :'users/followers'
+end
+
+# get "/user/:id/following" do
+#   @user = User.find(params[:id])
+#   @followers = []
+
+#   erb :'users/followers'
+# end

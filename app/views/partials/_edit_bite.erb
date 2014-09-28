@@ -1,0 +1,15 @@
+<div class="edit_bite_partial">
+  <div id="top"><h4>Edit Bite</h4></div>
+    <form action="/bite/<%=bite.id%>/edit" method="post">
+      <input type="hidden" name="_method" value="put">
+      <textarea name="bite_content"><%=bite.content%></textarea>
+      <br><br>
+      <button type="submit">Update Bite</button>
+    </form>
+
+    <form action="/bite/<%=bite.id%>" method="post">
+        <br>
+        <input type="hidden" name="_method" value="delete">
+      <button type="submit">Destroy Bite</button>
+    </form>
+</div>

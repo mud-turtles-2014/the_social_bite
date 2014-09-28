@@ -2,6 +2,25 @@ body {
   background: #E0E4CC;
 }
 
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline-block;
+  padding-bottom: 2px dotted;
+}
+
+a {
+  font-weight: bold;
+  color: #F38630;
+}
+
+.user_info img{
+  height: 5%;
+  width: 5%;
+}
+
 .container {
   height: 100%;
   width: 100%;

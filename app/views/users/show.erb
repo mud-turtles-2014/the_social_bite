@@ -4,12 +4,17 @@
     </div>
   <div class="profile_info">
     <% if @user == User.find(session[:user_id]) %>
-      <form action="/user/<%=@user.id%>" method="post">
         <a href="/user/<%=@user.id%>/bitefeed"><input class="btn" value="Go to Bitefeed" type="submit"></a>
-        <h4>Followers: <%=@user.followers.count-1%>     |     Following: <%=@user.followed_users.count-1%></h4>
-      </form>
+        <div id="follow_info">
+          <%= erb :'/partials/_follow_info', locals:{user: @user}, layout: false %>
+        </div>
     <%else%>
-        <%= erb :'_follow_info', layout: false %>
+        <div id="follow_btn">
+          <%= erb :'/partials/_follow_btn', layout: false %>
+        </div>
+        <div id="follow_info">
+          <%= erb :'/partials/_follow_info', layout: false %>
+        </div>
     <%end%>
   </div>
 </div>
@@ -18,7 +23,7 @@
 
 <div id="bites">
   <%@bites.each do |loop_bite|%>
-    <%= erb :'_bite_display', locals:{bite: loop_bite}%>
+    <%= erb :'/partials/_bite_display', locals:{bite: loop_bite}%>
   <%end%>
 </div>
 <!-- Minus one to account for user following themselves -->

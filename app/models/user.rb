@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   has_many :followed_users, through: :followed_relationships, source: :followed_user
 
   # scope :following, ->(following) { where(:follower_id => following AND :followed_user_id => self.id) }
+
 end

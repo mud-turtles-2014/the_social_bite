@@ -1,0 +1,11 @@
+<div class="bite_display">
+  <%="- -" * 54%>
+  <br>
+  <a href="/user/<%=bite.author.id%>"><%=bite.author.name%></a> --
+  "<%=bite.content%>"
+   - <i><%=bite.created_at.to_s[0..9]%></i>
+
+  <%if bite.author == User.find(session[:user_id])%>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="edit_link" href="/bite/<%=bite.id%>/edit"><i>Edit</i></a>
+  <%end%>
+</div>

@@ -1,0 +1,1 @@
+<h4><a href="/user/<%=user.id%>/followers">Followers</a>: <%=User.find(params[:id]).followers.count-1%> | <a href="/user/<%=user.id%>/followers">Following</a>: <%=User.find(params[:id]).followed_users.count-1%></h4>

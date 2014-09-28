@@ -9,7 +9,7 @@
       <%end%>
       <p>
      <form id="create_bite" action='/user/<%=@user.id%>/new' method="post">
-        <textarea name="bite_content" placeholder="<%=$placeholder_sayings.sample%>"></textarea>
+        <textarea name="bite_content" placeholder="<%=$PLACEHOLDER_SAYINGS.sample%>"></textarea>
         <br><br>
         <input type="submit" value="Create Bite">
     </form>
@@ -19,7 +19,7 @@
 
   <div id="bites">
     <%@bite_feed.each do |loop_bite|%>
-      <%= erb :'_bite_display', locals:{bite: loop_bite}%>
+      <%= erb :'/_bite_display', locals:{bite: loop_bite}%>
     <%end%>
   </div>
 

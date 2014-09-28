@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  // $('#bites').prepend("<h2>" + Hello World + "</h2>");
+  $('.edit_bite_partial').hide()
+
   $('#create_bite').submit(function(event) {
     event.preventDefault();
     $('#create_bite input').val('Creating...');
@@ -13,15 +14,41 @@ $(document).ready(function() {
       });
   });
 
-  $('#follow_info').submit(function(event) {
+  $('#follow_btn').submit(function(event) {
     event.preventDefault();
-   $('#follow_info input').val('Digesting...');
+    var button_value = $('#follow_btn input').val();
+   $('#follow_btn input').val('Digesting...');
     $.ajax({
       url: $('.profile_info form').attr("action"),
       type: 'post'
       }).done(function(response){
-        console.log(response);
-        $('.profile_info form').replaceWith(response);
+
+        if (button_value === "Bite Me") {
+          $('#follow_btn input').val("UNBite Me");
+        } else {
+          $('#follow_btn input').val("Bite Me");
+        }
+        $('#follow_info').html(response);
     });
   });
+
+  $('.edit_link').click(function(event) {
+      event.preventDefault();
+      $('.edit_bite_partial').toggle();
+    });
+
+  $('#followers').click(function(event) {
+    $('#followers').css('font-weight','bold')
+    $('#following').css('font-weight','normal')
+    $('.following').hide();
+    $('.followers').show();
+    });
+
+  $('#following').click(function(event) {
+    $('#following').css('font-weight','bold')
+    $('#followers').css('font-weight','normal')
+    $('.followers').hide();
+    $('.following').show();
+    });
+
 });
