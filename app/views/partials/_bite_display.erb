@@ -6,6 +6,10 @@
    - <i><%=bite.created_at.to_s[0..9]%></i>
 
   <%if bite.author == User.find(session[:user_id])%>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="edit_link" href="/bite/<%=bite.id%>/edit"><i>Edit</i></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a class="edit_link" type="button">Edit</a>
+    <div class="edit">
+      <%= erb :'/partials/_edit_bite', locals:{bite:bite} %>
+    </div>
   <%end%>
 </div>

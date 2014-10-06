@@ -22,6 +22,7 @@ helpers do
     bite_feed = []
     logged_in_user = User.find(session[:user_id])
     logged_in_user.followed_users.each {|user| bite_feed << user.bites.order("created_at DESC")}
+    # bite_feed.sort_by {|bite| bite.created_at}
     bite_feed.flatten
   end
 

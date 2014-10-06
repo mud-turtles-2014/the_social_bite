@@ -19,7 +19,7 @@
 
   <div id="bites">
     <%@bite_feed.each do |loop_bite|%>
-      <%= erb :'/_bite_display', locals:{bite: loop_bite}%>
+      <%= erb :'/partials/_bite_display', locals:{bite: loop_bite}%>
     <%end%>
   </div>
 

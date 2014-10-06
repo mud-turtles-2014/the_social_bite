@@ -11,6 +11,7 @@ $(document).ready(function() {
       }).done(function(response){
         $('#bites').prepend(response);
         $('textarea').val('');
+        $('#create_bite input').val('Create Bite');
       });
   });
 
@@ -32,10 +33,18 @@ $(document).ready(function() {
     });
   });
 
-  $('.edit_link').click(function(event) {
-      event.preventDefault();
-      $('.edit_bite_partial').toggle();
-    });
+  $('#bites').on('click', '.edit_link', function(event) {
+    event.preventDefault();
+    console.log("hello");
+    $('.edit_bite_partial').toggle()
+  })
+
+  // $('.edit_link').click(function(event) {
+  //   debugger;
+  //    event.preventDefault();
+  //    console.log("bye");
+  //    $('.edit_bite_partial').toggle();
+  //    });
 
   $('#followers').click(function(event) {
     $('#followers').css('font-weight','bold')

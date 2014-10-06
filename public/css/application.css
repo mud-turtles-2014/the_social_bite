@@ -4,16 +4,34 @@ body {
 
 ul {
   list-style-type: none;
+  text-align: center;
 }
 
 li {
   display: inline-block;
   padding-bottom: 2px dotted;
+  text-align: center;
+  font-weight: bold;
+  color: #F38630;
+  margin: 20px;
+  font-size: 1.2em;
 }
 
 a {
   font-weight: bold;
   color: #F38630;
+}
+
+.following{
+   margin: 0 auto;
+    text-align: left;
+    width: 800px;
+}
+
+.followers{
+ margin: 0 auto;
+    text-align: left;
+    width: 800px;
 }
 
 .user_info img{
