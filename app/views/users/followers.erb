@@ -1,0 +1,16 @@
+<ul>
+  <li id = "followers">Followers</li>
+  <li id = "following">Following</li>
+</ul>
+
+<div class="followers">
+  <% @followers.each do |follower| %>
+  <%=erb :'/partials/_user_info_partial', layout: false, locals:{user: follower} %>
+  <% end %>
+</div>
+
+<div class="following">
+  <% @following.each do |follower| %>
+  <%=erb :'/partials/_user_info_partial', layout: false, locals:{user: follower} %>
+  <% end %>
+</div>

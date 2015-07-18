@@ -1,10 +1,15 @@
-<h1>The Social Bite</h1>
+<div class="login">
 <form action="/" method="post">
-  <h2>Login</h2>
-  <label>Username: </label><input name="user[name]" type="text"><br>
-  <label>Password: </label><input name="user[password]" type="password"><br>
+  <h3>Login</h3>
 
-  <%= @error if @error %><br>
+  <label> Username :</label>&nbsp;&nbsp;&nbsp;<input name="user[name]" type="text"><br><br>
+  <label> Password :</label>&nbsp;&nbsp;&nbsp;<input name="user[password]" type="password"><br>
 
-  <button type="submit">Login</button>
+  <br>
+  <%if @error %>
+    <%=@error%><br>
+  <%end%>
+  <br>
+  <button class="btn" type="submit">Login</button>
 </form>
+</div>

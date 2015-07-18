@@ -20,9 +20,23 @@ helpers do
 
   def followers_bites
     bite_feed = []
-    user = User.find(session[:user_id])
-    bite_feed << user.bites.order("created_at DESC")
-    user.followed_users.each {|user| bite_feed << user.bites.order("created_at DESC")}
+    logged_in_user = User.find(session[:user_id])
+    logged_in_user.followed_users.each {|user| bite_feed << user.bites.order("created_at DESC")}
+    # bite_feed.sort_by {|bite| bite.created_at}
     bite_feed.flatten
   end
+
+  def check_for_hashtags(bite_object)
+    bite_object.content.split(" ").each do |word|
+      if Hashtag.exists?(current_user.bites.find(bite_object.id).hashtags.find_by(hashtag: word.match(/#\w{0,}/).to_s)) == false
+          bite_object.hashtags << Hashtag.find_or_create_by(hashtag: word.match(/#\w{0,}/).to_s) if word[0] == "#"
+      end
+    end
+  end
+
+  def trending_hashtags
+    Hashtag.all.order("bites_count DESC").limit(5)
+  end
 end
+
+# User.order("users.solutions_count DESC").limit(10)

@@ -1,12 +1,25 @@
-<h2>My Bitefeed</h2>
+<div id="top"><h3>My Bitefeed</h3></div>
 
-<form action='/user/<%=@user.id%>/bitefeed' method="post">
-<textarea name="bite_content" placeholder="<%=$placeholder_sayings.sample%>"></textarea>
-<br>
-<a href="/bite/new"><button type="submit">Create New Bite</button></a>
-</form>
-<br>
-<%@bite_feed.each do |loop_bite|%>
-  <%= erb :'_bite_display', locals:{bite: loop_bite}%>
-<%end%>
+  <div id="profile">
+    <img class="profile_pic" src="<%=current_user.photo_url%>" alt="Profile Picture">
+    <div class="bite_form">
+      <h4>Trending Hashtags:</h4>
+      <%@trending_hashtags.each do |tag|%>
+        <a href="/hashtag/<%=tag.id%>"><%=tag.hashtag%></a>
+      <%end%>
+      <p>
+     <form id="create_bite" action='/user/<%=@user.id%>/new' method="post">
+        <textarea name="bite_content" placeholder="<%=$PLACEHOLDER_SAYINGS.sample%>"></textarea>
+        <br><br>
+        <input type="submit" value="Create Bite">
+    </form>
+    <br>
+     </div>
+  </div>
+
+  <div id="bites">
+    <%@bite_feed.each do |loop_bite|%>
+      <%= erb :'/partials/_bite_display', locals:{bite: loop_bite}%>
+    <%end%>
+  </div>
 

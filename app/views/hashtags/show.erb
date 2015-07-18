@@ -1,0 +1,8 @@
+<div id="edit_bite">
+  <div id="top"><h2>All bites for '<%=@tag.hashtag%>'</h2></div>
+
+  <%@bites_for_tag.each do |loop_bite|%>
+    <%= erb :'_bite_display', locals:{bite: loop_bite}%>
+  <%end%>
+</div>
+

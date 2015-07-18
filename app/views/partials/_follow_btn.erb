@@ -1,0 +1,9 @@
+<form id="follow_btn" action="/user/<%=params[:id]%>" method="post">
+  <% if following?(User.find(params[:id])) %>
+  <% bite_me = "UNBite Me"%>
+  <%else%>
+  <% bite_me = "Bite Me"%>
+  <%end%>
+
+  <input class="btn" type="submit" value="<%=bite_me%>">
+</form>
